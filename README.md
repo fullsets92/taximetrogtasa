@@ -7,7 +7,7 @@ Aviso: Para que você possa usar o chat tranquilamente, o programa irá travar o
 Então se por algum motivo o taximetro parar de aceitar inputs, tente apertar esc ou enter pois pode ter falhado.
 
 
-No .ini é posssível configurar como quiser, inclusive mudando teclas de ativação.
+No .ini é posssível configurar como quiser, inclusive mudar teclas de ativação.
 
 
 teclaBandeira cicla entre os 3 valores.
