@@ -16,7 +16,7 @@ using namespace plugin;
 
 class Taximetro {
 public:
-	// CriaÁ„o de vari·veis
+    // Cria√ß√£o de vari√°veis
     bool ligado = false;
     bool mostrarHUD = true;
     float precoBase = 5.0f;
@@ -34,7 +34,7 @@ public:
     std::string statusDisplay = statusDisplayDefault;
     
     
-    // Vari·veis para .ini
+    // Vari√°veis para .ini
     int keyLigar;
     int keyHUD;
     int keyBandeira;
@@ -42,7 +42,7 @@ public:
     int keyReset;
     int tempo;
 
-	// Para evitar que a aÁ„o seja realizada m˙ltiplas vezes por engano
+    // Para evitar que a a√ß√£o seja realizada m√∫ltiplas vezes por engano
     bool teclaLigarPrev = false;
     bool teclaHUDPrev = false;
     bool teclaBandeiraPrev = false;
@@ -62,7 +62,7 @@ public:
         Events::d3dResetEvent.Add(InitFont);
     }
 
-    // Basicamente o exemplo do DK22Pac
+    // Basicamente o exemplo do DK22Pac + um pouco de chatgpt pro outline
     static ID3DXFont* m_pD3DXFont;
     static void InitFont() {
         IDirect3DDevice9* device = reinterpret_cast<IDirect3DDevice9*>(RwD3D9GetCurrentD3DDevice());
@@ -132,7 +132,7 @@ public:
 
     void Processar() {
 
-		// Checa se o chat est· aberto (… falho, mas È oque temos)
+		// Checa se o chat est√° aberto (√â falho, mas √© oque temos)
         bool abriuChat = KeyPressed('T');
         if (abriuChat && !abriuChatPrev) {
             chatAberto = true;
@@ -154,7 +154,7 @@ public:
         teclaLigarPrev = teclaLigar;
 
         
-        // SÛ roda se estiver ligado
+        // S√≥ roda se estiver ligado
         if (ligado) {
             // Mostrar/ocultar HUD com L
             bool teclaHUD = KeyPressed(keyHUD);
@@ -213,14 +213,14 @@ public:
             }
             teclaResetPrev = teclaReset;
 
-            // Verifica se o jogador est· em um veÌculo
+            // Verifica se o jogador est√° em um ve√≠culo
             CVehicle* vehicle = FindPlayerVehicle(-1, true);
             if (!vehicle) {
                 ligado = false;
                 //CMessages::AddMessageJumpQ("Taximetro desativado: Voce nao esta em um veiculo!", 3000, 0, false);
                 return;
             }
-            // Se n„o estiver pausado, calcula o tempo e vai somando o preÁo
+            // Se n√£o estiver pausado, calcula o tempo e vai somando o pre√ßo
             else
                 if (rodando) {
                     if (std::chrono::duration_cast<std::chrono::duration<double>>(std::chrono::steady_clock::now() - cronometro1) >= std::chrono::seconds(tempo)) {
@@ -237,11 +237,11 @@ public:
                         cronometro2 = std::chrono::steady_clock::now();
                     }
                 }
-			// Mostra o texto do taxÌmetro se a HUD estiver ativa
+			// Mostra o texto do tax√≠metro se a HUD estiver ativa
             if (mostrarHUD) {
                 Draw();
                 textoEscrever = std::format(
-                    "       TAXÕMETRO\n    Bandeira {} (${:.1f}) \n        PreÁo: $ {:.1f}\n  {}",
+                    "       TAX√çMETRO\n    Bandeira {} (${:.1f}) \n        Pre√ßo: $ {:.1f}\n  {}",
                     bandeiraAtual + 1, bandeiras[bandeiraAtual], precoTotal, statusDisplay);
                 //textoEscrever2 = std::format(
                 //    "\n\n\n"
