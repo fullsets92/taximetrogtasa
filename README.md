@@ -1,5 +1,10 @@
-# taximetrogtasa
+# Taximetro GTA SA
 Um taximetro em texto para servidores SAMP (Clientside)
+
+Funciona com modloader.
+
+Aviso: Para que você possa usar o chat tranquilamente, o programa irá travar os inputs quando você aperta T e volta quando você aperta esc ou enter.
+Então se por algum motivo o taximetro parar de aceitar inputs, tente apertar esc ou enter pois pode ter falhado.
 
 
 No .ini é posssível configurar como quiser, inclusive mudando teclas de ativação.
